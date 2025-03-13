@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабыл алуунун түрлөрү</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%);
+            animation: dust 3s infinite linear alternate;
+        }
+        @keyframes dust {
+            from { transform: translateX(-10px); }
+            to { transform: translateX(10px); }
+        }
+        .info, .diagram {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        .card {
+            background: #242424;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .game {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .choice {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .choice:hover {
+            background: #217dbb;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Кабыл алуунун түрлөрү</h1>
+        <div class="info">
+            <p><strong>Кабыл алуу</strong> - бул чечим кабыл алуу процесси, анда адам маалыматтарды иштеп чыгып, кырдаалды баалап, ар кандай стратегияларды тандайт.</p>
+        </div>
+        <div class="diagram">
+            <h2>Кабыл алуунун негизги түрлөрү</h2>
+            <ul>
+                <li><strong>Рационалдуу кабыл алуу</strong> - логикалык ой жүгүртүү жана анализге негизделген.</li>
+                <li><strong>Интуитивдик кабыл алуу</strong> - ички сезимдер жана тажрыйбага негизделген.</li>
+                <li><strong>Эмоциялык кабыл алуу</strong> - эмоцияларга жана сезимдерге таянган.</li>
+                <li><strong>Импульсивдүү кабыл алуу</strong> - ойлонулбаган, ыкчам чечим кабыл алуу.</li>
+            </ul>
+        </div>
+        <div class="game">
+            <h2>Мини-оюн: Туура чечимди тап</h2>
+            <p><strong>Суроо 1:</strong> Эгер сиз маалыматты анализдеп, логикага таянсаңыз, бул кайсы ыкма?</p>
+            <div class="choices">
+                <div class="choice" onclick="checkAnswer(this, 'Рационалдуу кабыл алуу')">Рационалдуу кабыл алуу</div>
+                <div class="choice" onclick="checkAnswer(this, 'Интуитивдик кабыл алуу')">Интуитивдик кабыл алуу</div>
+            </div>
+            <p><strong>Суроо 2:</strong> Эгер сиз чечимди ички сезимдериңизге негиздеп кабыл алсаңыз, бул кайсы ыкма?</p>
+            <div class="choices">
+                <div class="choice" onclick="checkAnswer(this, 'Интуитивдик кабыл алуу')">Интуитивдик кабыл алуу</div>
+                <div class="choice" onclick="checkAnswer(this, 'Эмоциялык кабыл алуу')">Эмоциялык кабыл алуу</div>
+            </div>
+            <p><strong>Суроо 3:</strong> Эгер сиз чечимди эмоцияларга негиздеп кабыл алсаңыз, бул кайсы ыкма?</p>
+            <div class="choices">
+                <div class="choice" onclick="checkAnswer(this, 'Эмоциялык кабыл алуу')">Эмоциялык кабыл алуу</div>
+                <div class="choice" onclick="checkAnswer(this, 'Рационалдуу кабыл алуу')">Рационалдуу кабыл алуу</div>
+            </div>
+            <p id="gameResult"></p>
+        </div>
+    </div>
+    <footer>
+        Студент: Сартова Сезим | Преподаватель: ....
+    </footer>
+    <script>
+        function checkAnswer(element, correctAnswer) {
+            if (element.innerText === correctAnswer) {
+                element.style.background = 'green';
+                document.getElementById('gameResult').innerText = 'Туура!';
+            } else {
+                element.style.background = 'red';
+                document.getElementById('gameResult').innerText = 'Туура эмес!';
+            }
+        }
+    </script>
+</body>
+</html>
